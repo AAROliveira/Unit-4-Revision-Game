@@ -11,9 +11,86 @@ main{padding:16px;max-width:980px;margin:18px auto}
 #lessons-list .lesson-item{padding:10px;border-bottom:1px solid #eee;cursor:pointer}
 #lessons-list .lesson-item:hover{background:#f1f5f9}
 #lesson-detail pre{white-space:pre-wrap}
-.flashcard-front{font-size:24px;font-weight:600;padding:24px;text-align:center}
-.flashcard-back{padding:16px;font-size:16px;color:var(--muted);text-align:center}
-.controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
+#flashcard-area {
+    perspective: 1000px;
+    padding: 20px;
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+    padding: 24px;
+}
+
+.flashcard-front {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    font-size: 20px;
+    color: var(--muted);
+}
+
+.flashcard-example {
+    margin-top: 16px;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--muted);
+}
+
+.progress-bar {
+    height: 4px;
+    background: #e2e8f0;
+    border-radius: 2px;
+    margin: 0 auto 16px;
+    width: 200px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.keyboard-hints {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 12px;
+}
 button{padding:8px 12px;border-radius:6px;border:1px solid #ddd;background:white;cursor:pointer}
 button.primary{background:var(--accent);color:white;border:0}
 #quiz-choices button,#challenge-choices button{display:block;width:100%;text-align:left;margin:8px 0}

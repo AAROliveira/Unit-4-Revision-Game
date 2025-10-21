@@ -35,14 +35,26 @@
         <section id="view-flashcards" class="view hidden">
             <h2>Flashcards</h2>
             <div id="flashcard-area" class="card">
-                <div id="flashcard-word" class="flashcard-front"></div>
-                <div id="flashcard-def" class="flashcard-back hidden"></div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+                <div class="flashcard">
+                    <div class="flashcard-front">
+                        <div id="flashcard-word"></div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div id="flashcard-def"></div>
+                        <div id="flashcard-example" class="flashcard-example"></div>
+                    </div>
+                </div>
                 <div class="controls">
-                    <button id="fc-prev">Prev</button>
-                    <button id="fc-show">Show</button>
-                    <button id="fc-next">Next</button>
-                    <button id="fc-know">I know</button>
-                    <button id="fc-dont">I don't</button>
+                    <button id="fc-prev" title="Previous card">⟨ Prev</button>
+                    <button id="fc-know" class="primary" title="Mark as known">I know this</button>
+                    <button id="fc-dont" title="Mark as unknown">Need to review</button>
+                    <button id="fc-next" title="Next card">Next ⟩</button>
+                </div>
+                <div class="keyboard-hints">
+                    Keyboard shortcuts: Space (flip), ← (prev), → (next), ↑ (know), ↓ (don't know)
                 </div>
             </div>
         </section>

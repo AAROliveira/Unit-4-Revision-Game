@@ -50,18 +50,76 @@ function showLesson(lesson){
 // --- Flashcards ---
 let fcIndex = 0
 let flashItems = []
+
 function initFlashcards(){
   flashItems = DATA.lessons.flatMap(l=>l.vocabulary||[])
   fcIndex = 0
   renderFlashcard()
+  updateFlashcardProgress()
+  
+  // Add keyboard listeners
+  document.addEventListener('keydown', handleFlashcardKeys)
+}
+
+function handleFlashcardKeys(e) {
+  if (!document.querySelector('#view-flashcards').classList.contains('hidden')) {
+    switch(e.key) {
+      case ' ':
+        toggleFlashcard()
+        e.preventDefault()
+        break
+      case 'ArrowLeft':
+        qs('fc-prev').click()
+        e.preventDefault()
+        break
+      case 'ArrowRight':
+        qs('fc-next').click()
+        e.preventDefault()
+        break
+      case 'ArrowUp':
+        qs('fc-know').click()
+        e.preventDefault()
+        break
+      case 'ArrowDown':
+        qs('fc-dont').click()
+        e.preventDefault()
+        break
+    }
+  }
+}
+
+function updateFlashcardProgress() {
+  const total = flashItems.length
+  const known = Object.keys(state.knownWords).length
+  const progress = (known / total) * 100
+  qs('flashcard-area').querySelector('.progress-bar-fill').style.width = `${progress}%`
+}
+
+function toggleFlashcard() {
+  const card = qs('flashcard-area').querySelector('.flashcard')
+  card.classList.toggle('flipped')
 }
 
 function renderFlashcard(){
   if(!flashItems.length) return
   const item = flashItems[fcIndex]
+  
+  // Reset flip state
+  const card = qs('flashcard-area').querySelector('.flashcard')
+  card.classList.remove('flipped')
+  
+  // Update content
   qs('flashcard-word').textContent = item.word || item.example || ''
-  qs('flashcard-def').textContent = item.definition || item.example || ''
-  qs('flashcard-def').classList.add('hidden')
+  qs('flashcard-def').textContent = item.definition || ''
+  qs('flashcard-example').textContent = item.example || ''
+  
+  // Update progress
+  updateFlashcardProgress()
+  
+  // Update button states based on known status
+  const isKnown = state.knownWords[item.word]
+  qs('fc-know').classList.toggle('primary', !isKnown)
+  qs('fc-dont').classList.toggle('primary', isKnown)
 }
 
 // --- Quiz generator ---
@@ -190,11 +248,37 @@ document.addEventListener('DOMContentLoaded', async ()=>{
   qs('btn-progress').onclick = ()=>{ renderProgress(); showView('view-progress') }
 
   // flashcard controls
-  qs('fc-next').onclick = ()=>{ fcIndex = (fcIndex+1) % flashItems.length; renderFlashcard() }
-  qs('fc-prev').onclick = ()=>{ fcIndex = (fcIndex-1+flashItems.length) % flashItems.length; renderFlashcard() }
-  qs('fc-show').onclick = ()=>{ qs('flashcard-def').classList.toggle('hidden') }
-  qs('fc-know').onclick = ()=>{ const w = flashItems[fcIndex].word; state.knownWords[w]=true; state.points += 2; saveState(); renderProgress(); qs('fc-next').click() }
-  qs('fc-dont').onclick = ()=>{ const w = flashItems[fcIndex].word; delete state.knownWords[w]; saveState(); qs('fc-next').click() }
+  qs('fc-next').onclick = ()=>{ 
+    fcIndex = (fcIndex+1) % flashItems.length
+    renderFlashcard()
+  }
+  qs('fc-prev').onclick = ()=>{ 
+    fcIndex = (fcIndex-1+flashItems.length) % flashItems.length
+    renderFlashcard()
+  }
+  qs('flashcard-area').querySelector('.flashcard').onclick = toggleFlashcard
+  qs('fc-know').onclick = ()=>{ 
+    const w = flashItems[fcIndex].word
+    if (!state.knownWords[w]) {
+      state.knownWords[w] = true
+      state.points += 2
+      saveState()
+      renderProgress()
+      // Add animation class
+      qs('fc-know').classList.add('primary')
+      qs('fc-dont').classList.remove('primary')
+    }
+  }
+  qs('fc-dont').onclick = ()=>{ 
+    const w = flashItems[fcIndex].word
+    if (state.knownWords[w]) {
+      delete state.knownWords[w]
+      saveState()
+      // Add animation class
+      qs('fc-know').classList.remove('primary')
+      qs('fc-dont').classList.add('primary')
+    }
+  }
 
   // quiz next
   qs('quiz-next').onclick = ()=>{ state.quizIndex += 1; saveState(); renderQuiz() }
