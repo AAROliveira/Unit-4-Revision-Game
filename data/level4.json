@@ -1,0 +1,127 @@
+{
+  "level": 4,
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Asking and Answering about Preferences",
+      "grammar": {
+        "focus": "Wh- Questions and Adjectives",
+        "notes": "Use 'What's...' and 'Why?' to ask about preferences. Answers often include descriptive adjectives (positive and negative).",
+        "positive_adjectives": ["amazing","easy","interesting","good"],
+        "negative_adjectives": ["terrible","difficult","boring","bad"],
+        "examples": [
+          {"q": "What's your least favorite subject?","a": "My least favorite subject is math."},
+          {"q": "What's your favorite subject?","a": "My favorite subject is history."},
+          {"q": "Why?","a": "Because it's boring."}
+        ]
+      },
+      "vocabulary": [
+        {"word":"math","definition":"A school subject focused on numbers, shapes, and quantities.","example":"My least favorite subject is math."},
+        {"word":"science","definition":"A school subject about the natural world, often involving experiments.","example":"My favorite subject is science, because it's amazing."},
+        {"word":"history","definition":"A school subject that studies past events.","example":"My favorite subject is history."},
+        {"word":"geography","definition":"A school subject that studies the Earth's physical features and people.","example":"My favorite subject is geography, because it's amazing."},
+        {"word":"English","definition":"A school subject focused on reading, writing, and speaking the English language.","example":"My favorite subject is English, because it's amazing."}
+      ]
+    },
+    {
+      "id": 2,
+      "title": "The Simple Past Tense",
+      "grammar": {
+        "focus": "Regular and Irregular Verbs; forming questions with 'did'",
+        "notes": "Regular verbs end in -ed; irregular verbs must be memorized. To ask about past actions use 'Did' + subject + base verb.",
+        "regular_examples": ["bake -> baked","play -> played","call -> called","watch -> watched"],
+        "irregular_examples": ["take -> took","eat -> ate","drink -> drank","read -> read"],
+        "question_structure": "What did + subject + do + time phrase?",
+        "examples": [
+          {"q":"What did you do yesterday?","a":"I drank a milkshake."},
+          {"q":"What did we do last week?","a":"We watched a film."}
+        ]
+      },
+      "vocabulary": [
+        {"word":"bake","forms":["bake","baked"],"example":"He baked some muffins."},
+        {"word":"play","forms":["play","played"],"example":"She played computer games."},
+        {"word":"call","forms":["call","called"],"example":"I called my friend."},
+        {"word":"take","forms":["take","took"],"example":"They took some photographs."},
+        {"word":"drink","forms":["drink","drank"],"example":"I drank a soda."},
+        {"word":"watch","forms":["watch","watched"],"example":"We watched a film."},
+        {"word":"eat","forms":["eat","ate"],"example":"I ate a hamburger."},
+        {"word":"read","forms":["read","read"],"example":"I read a good book."}
+      ]
+    },
+    {
+      "id": 3,
+      "title": "The Verb 'to be' in the Past (Was / Were)",
+      "grammar": {
+        "focus": "Was / Were",
+        "notes": "Conjugation depends on subject. Use 'was' for I, he, she, it. Use 'were' for you, we, they. Questions often place 'was/were' before the subject; negatives use wasn't/weren't.",
+        "table": {"I":"was","He/She/It":"was","You/They/We":"were"},
+        "examples": ["Was the birthday cake amazing?","They were fun."]
+      },
+      "vocabulary": [
+        {"word":"birthday cake","definition":"A special cake eaten to celebrate a birthday.","example":"The candles were on the birthday cake."},
+        {"word":"games","definition":"Activities with rules people play for fun.","example":"How were the games?"}
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Compound Sentences in the Past",
+      "grammar": {"focus":"Using 'and' to connect clauses","notes":"Join related past actions with 'and' to make compound sentences.","examples":["I went to the theme park and rode the roller coaster.","I went to the museum and looked at beautiful paintings."]},
+      "vocabulary": [
+        {"word":"theme park","definition":"An amusement park with rides, shows, and attractions.","example":"I went to the theme park and rode the roller coaster."},
+        {"word":"museum","definition":"A building where important cultural, historical, or scientific objects are kept.","example":"I went to the museum and looked at beautiful paintings."}
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Giving Advice with 'Should'",
+      "grammar": {"focus":"'Should' for recommendations","notes":"You should + base verb; use 'if' for conditional advice.","examples":[{"problem":"I have a headache.","advice":"You should drink some water."},{"problem":"I have a toothache.","advice":"You should visit a dentist."}]},
+      "vocabulary":[{"word":"medicine","definition":"A substance used to treat illness or relieve pain.","example":"You should take some medicine."},{"word":"dentist","definition":"A doctor who treats teeth.","example":"You should visit a dentist."},{"word":"fever","definition":"A high body temperature.","example":"I have a fever."},{"word":"rest","definition":"A period of relaxing to recover energy.","example":"You should get some rest."}]    
+    },
+    {
+      "id": 6,
+      "title": "Forming Questions with Wh- Words",
+      "grammar": {"focus":"Wh- words","notes":"Where=place, Who=person, What=thing, When=time, Why=reason, How=more information.","examples":["What's your favorite subject?","Who was at the birthday party?","How were the games?","Where did you go?"]},
+      "vocabulary":[{"word":"where","definition":"Used to ask about a place.","example":"Where did you go?"},{"word":"who","definition":"Used to ask about a person or people.","example":"Who was at the birthday party?"},{"word":"what","definition":"Used to ask about an object or thing.","example":"What's your favorite subject?"},{"word":"when","definition":"Used to ask about time.","example":"When was the birthday party?"},{"word":"why","definition":"Used to ask for a reason.","example":"Why is science your favorite subject?"},{"word":"how","definition":"Used to ask about the way something is done or condition.","example":"How were the games?"}]    
+    },
+    {
+      "id": 7,
+      "title": "Indefinite Articles (a / an)",
+      "grammar": {"focus":"a/an based on sound","notes":"Use 'a' before consonant sounds and 'an' before vowel sounds. Pronunciation rule matters more than spelling.","examples":["There's a turtle.","There's an eel.","There's an amazing whale."]},
+      "vocabulary":[{"word":"turtle","definition":"A reptile with a hard shell.","example":"There's a turtle."},{"word":"eel","definition":"A long, snake-like fish.","example":"There's an eel."},{"word":"whale","definition":"A very large mammal that lives in the ocean.","example":"There's an amazing whale."}]    
+    },
+    {
+      "id": 8,
+      "title": "Countable and Uncountable Nouns",
+      "grammar": {"focus":"How much vs How many","notes":"Use 'How many' with countable plurals and 'How much' with uncountable nouns. Use containers/units to quantify uncountables (a bottle of, a jar of).","examples":["How many eggs do you need?","How much sugar do you need?","I need a jar of jam."]},
+      "vocabulary":[{"word":"sugar","type":"uncountable","example":"How much sugar do you need?"},{"word":"eggs","type":"countable","example":"How many eggs do you need?"},{"word":"jar","definition":"A glass container with a lid.","example":"I need a jar of jam."}]    
+    },
+    {
+      "id": 9,
+      "title": "Simple Present for Professions",
+      "grammar": {"focus":"Subject-Verb Agreement; 'do'/'does'","notes":"Use 'does' for third-person singular in questions (What does she do?). Use 'is/are' + an/a for statements.","examples":["What does she do?","She is a lawyer."]},
+      "vocabulary":[{"word":"dentist","definition":"A person who fixes teeth.","example":"He is a dentist."},{"word":"chef","definition":"A professional cook.","example":"He's a chef."},{"word":"scientist","definition":"A person who studies science.","example":"A scientist works in a laboratory."}]    
+    },
+    {
+      "id": 10,
+      "title": "Expressing Possession",
+      "grammar": {"focus":"Possessive 's' and 'Whose'","notes":"Add 's to singular nouns to show possession. Use 'Whose' to ask about ownership.","examples":["This is my grandma's perfume.","Whose necklace is it?"]},
+      "vocabulary":[{"word":"necklace","definition":"A piece of jewelry worn around the neck.","example":"This is my mother's necklace."},{"word":"watch","definition":"A small clock worn on the wrist.","example":"This is my father's watch."}]    
+    },
+    {
+      "id": 11,
+      "title": "Plural Nouns and 'There are'",
+      "grammar": {"focus":"Forming plurals; 'There are'","notes":"Add -s to form plurals in general. Use 'There are + number + plural noun' to state quantities.","examples":["There are four giraffes at the zoo.","There are six sculptures at the museum."]},
+      "vocabulary":[{"word":"giraffes","definition":"Plural of giraffe.","example":"There are four giraffes at the zoo."},{"word":"paintings","definition":"Plural of painting.","example":"There are four paintings at the museum."}]    
+    },
+    {
+      "id": 12,
+      "title": "Review",
+      "grammar": {"focus":"Integrated review","notes":"Summary of key points: simple past, wh- questions, possessives, a/an, countables/uncountables, plurals."},
+      "vocabulary": [
+        {"word":"aquarium","example":"We saw sharks at the aquarium."},
+        {"word":"purse","example":"Whose purse is this?"},
+        {"word":"ticket","example":"I need a ticket for the rollercoaster."}
+      ]
+    }
+  ]
+}

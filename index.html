@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Level 4 Revision Game</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script>
+        // GitHub Pages base URL support
+        window.ghPagesBase = location.hostname === 'localhost' ? '' : '/Unit-4-Revision-Game';
+    </script>
+    <script defer src="./app.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Level 4 Revision Game</h1>
+        <nav>
+            <button id="btn-lessons">Lessons</button>
+            <button id="btn-flashcards">Flashcards</button>
+            <button id="btn-quiz">Quiz</button>
+            <button id="btn-challenge">Timed Challenge</button>
+            <button id="btn-progress">Progress</button>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section id="view-lessons" class="view hidden">
+            <h2>Lessons</h2>
+            <div id="lessons-list"></div>
+            <div id="lesson-detail" class="card hidden"></div>
+        </section>
+
+        <section id="view-flashcards" class="view hidden">
+            <h2>Flashcards</h2>
+            <div id="flashcard-area" class="card">
+                <div id="flashcard-word" class="flashcard-front"></div>
+                <div id="flashcard-def" class="flashcard-back hidden"></div>
+                <div class="controls">
+                    <button id="fc-prev">Prev</button>
+                    <button id="fc-show">Show</button>
+                    <button id="fc-next">Next</button>
+                    <button id="fc-know">I know</button>
+                    <button id="fc-dont">I don't</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-quiz" class="view hidden">
+            <h2>Quiz</h2>
+            <div id="quiz-area" class="card">
+                <div id="quiz-q"></div>
+                <div id="quiz-choices"></div>
+                <div class="controls">
+                    <button id="quiz-next">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-challenge" class="view hidden">
+            <h2>Timed Challenge</h2>
+            <div id="challenge-area" class="card">
+                <div id="challenge-timer">Time: <span id="timer-val">60</span>s</div>
+                <div id="challenge-q"></div>
+                <div id="challenge-choices"></div>
+                <div class="controls">
+                    <button id="challenge-start">Start</button>
+                    <button id="challenge-stop">Stop</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-progress" class="view hidden">
+            <h2>Progress & Badges</h2>
+            <div id="progress-area" class="card"></div>
+            <div id="leaderboard" class="card">
+                <h3>Local Leaderboard</h3>
+                <ol id="leaderboard-list"></ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <small>Offline static app. Progress saved in your browser.</small>
+    </footer>
+</body>
+
+</html>
