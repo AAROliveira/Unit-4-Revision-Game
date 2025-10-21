@@ -8,9 +8,120 @@ main{padding:16px;max-width:980px;margin:18px auto}
 .view{margin-bottom:20px}
 .hidden{display:none}
 .card{background:var(--card);border-radius:8px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.08)}
-#lessons-list .lesson-item{padding:10px;border-bottom:1px solid #eee;cursor:pointer}
-#lessons-list .lesson-item:hover{background:#f1f5f9}
-#lesson-detail pre{white-space:pre-wrap}
+#lessons-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
+
+.lesson-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+    border-color: var(--accent);
+}
+
+.lesson-number {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.lesson-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1a202c;
+}
+
+#lesson-detail {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    animation: slideIn 0.3s ease;
+}
+
+#lesson-detail h3 {
+    color: var(--accent);
+    font-size: 24px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+#lesson-detail h4 {
+    color: #1a202c;
+    font-size: 20px;
+    margin: 24px 0 16px;
+}
+
+#lesson-detail pre {
+    white-space: pre-wrap;
+    background: #f8fafc;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin: 16px 0;
+    font-family: inherit;
+}
+
+.vocabulary-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.vocab-item {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.vocab-word {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.vocab-definition {
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.vocab-example {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+    margin-top: 8px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 #flashcard-area {
     perspective: 1000px;
     padding: 20px;

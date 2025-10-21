@@ -29,7 +29,10 @@ function renderLessons(){
   DATA.lessons.forEach(lesson=>{
     const div = document.createElement('div')
     div.className = 'lesson-item'
-    div.textContent = `${lesson.id}. ${lesson.title}`
+    div.innerHTML = `
+      <div class="lesson-number">Lesson ${lesson.id}</div>
+      <div class="lesson-title">${lesson.title}</div>
+    `
     div.onclick = ()=>showLesson(lesson)
     list.appendChild(div)
   })
@@ -38,12 +41,42 @@ function renderLessons(){
 function showLesson(lesson){
   const d = qs('lesson-detail')
   d.classList.remove('hidden')
-  d.innerHTML = `<h3>${lesson.id}. ${lesson.title}</h3>`
+  d.innerHTML = `<h3>Lesson ${lesson.id}: ${lesson.title}</h3>`
+  
   if(lesson.grammar){
-    d.innerHTML += `<h4>Grammar</h4><pre>${lesson.grammar.focus}\n\n${lesson.grammar.notes || ''}</pre>`
+    const examples = lesson.grammar.examples ? 
+      `<div class="grammar-examples">
+         ${Array.isArray(lesson.grammar.examples) ? 
+           lesson.grammar.examples.map(ex => 
+             typeof ex === 'string' ? 
+               `<div class="example">${ex}</div>` :
+               `<div class="example">
+                  <div class="example-q">${ex.q || ''}</div>
+                  <div class="example-a">${ex.a || ''}</div>
+                </div>`
+           ).join('') : ''}
+       </div>` : ''
+    
+    d.innerHTML += `
+      <h4>Grammar</h4>
+      <pre>${lesson.grammar.focus}${lesson.grammar.notes ? '\n\n' + lesson.grammar.notes : ''}</pre>
+      ${examples}
+    `
   }
+  
   if(lesson.vocabulary && lesson.vocabulary.length){
-    d.innerHTML += '<h4>Vocabulary</h4><ul>' + lesson.vocabulary.map(v=>`<li><strong>${v.word}</strong> — ${v.definition||v.example||''}<div class="muted">Example: ${v.example||''}</div></li>`).join('') + '</ul>'
+    d.innerHTML += `
+      <h4>Vocabulary</h4>
+      <div class="vocabulary-list">
+        ${lesson.vocabulary.map(v => `
+          <div class="vocab-item">
+            <div class="vocab-word">${v.word}</div>
+            ${v.definition ? `<div class="vocab-definition">${v.definition}</div>` : ''}
+            ${v.example ? `<div class="vocab-example">${v.example}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    `
   }
 }
 
